@@ -50,11 +50,20 @@ class Queue:
             self.items[start]=None 
             return firstEl
         
+    def peek(self):
+        if self.isEmpty():
+            return "There are no elements in the queue"
+        else:
+            return self.items[self.start]
+        
+    def delete(self):
+        self.items=self.maxSize*[None]
+        self.start=self.top=-1
              
 customQueue=Queue(3)
 customQueue.enqueue(1)
 customQueue.enqueue(2)
 customQueue.enqueue(3)
 print(customQueue)
-
+customQueue.delete()
 print(customQueue)
