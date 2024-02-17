@@ -16,6 +16,10 @@ class Queue:
             return True
         return False
     
+    def isEmpty(self):
+        if self.top==-1:
+            return True
+        return False
         
 customQueue=Queue(3)
-print(customQueue.isFull())
+print(customQueue.isEmpty())
