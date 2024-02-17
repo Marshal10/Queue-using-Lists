@@ -34,9 +34,27 @@ class Queue:
             self.items[self.top]=value
             return "Element added succesfully to the queue"
         
+    def dequeue(self):
+        if self.isEmpty():
+            return "There are no elements in the queue"
+        else:
+            firstEl=self.items[self.start]
+            start=self.start
+            if self.start==self.top:
+                self.start=-1
+                self.top=-1
+            elif self.start+1==self.maxSize:
+                self.start=0
+            else:
+                self.start+=1  
+            self.items[start]=None 
+            return firstEl
+        
+             
 customQueue=Queue(3)
-print(customQueue.enqueue(1))
-print(customQueue.enqueue(2))
-print(customQueue.enqueue(3))
-print(customQueue.enqueue(3))
+customQueue.enqueue(1)
+customQueue.enqueue(2)
+customQueue.enqueue(3)
+print(customQueue)
+
 print(customQueue)
