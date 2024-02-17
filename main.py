@@ -20,6 +20,23 @@ class Queue:
         if self.top==-1:
             return True
         return False
+    
+    def enqueue(self,value):
+        if self.isFull():
+            return "The queue is full"
+        else:
+            if self.top+1==self.maxSize:
+                self.top=0
+            else:
+                self.top+=1
+                if self.start==-1:
+                    self.start=0
+            self.items[self.top]=value
+            return "Element added succesfully to the queue"
         
 customQueue=Queue(3)
-print(customQueue.isEmpty())
+print(customQueue.enqueue(1))
+print(customQueue.enqueue(2))
+print(customQueue.enqueue(3))
+print(customQueue.enqueue(3))
+print(customQueue)
